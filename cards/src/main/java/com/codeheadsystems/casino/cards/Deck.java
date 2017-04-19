@@ -1,10 +1,13 @@
 package com.codeheadsystems.casino.cards;
 
+import lombok.ToString;
+
 /**
  * Purpose: Represents a deck of cards
  * <p>
  * top card is at position zero.
  */
+@ToString
 public class Deck extends CardHolder {
 
     public static Deck standardDeck() {

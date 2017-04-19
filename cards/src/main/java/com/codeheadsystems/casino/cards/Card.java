@@ -2,8 +2,10 @@ package com.codeheadsystems.casino.cards;
 
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
+import lombok.ToString;
 
 @EqualsAndHashCode
+@ToString
 public class Card {
 
     @Getter private final Suit suit;

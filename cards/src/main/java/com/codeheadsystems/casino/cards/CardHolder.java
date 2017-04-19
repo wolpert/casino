@@ -1,7 +1,10 @@
 package com.codeheadsystems.casino.cards;
 
+import lombok.ToString;
+
 import java.util.*;
 
+@ToString
 public abstract class CardHolder {
 
     private ArrayList<Card> cards = new ArrayList<>();
