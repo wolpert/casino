@@ -33,4 +33,9 @@ public class Hand extends CardHolder {
                 cardsInDeck() == 2 &&
                 getCards().get(0).getRank().equals(getCards().get(1).getRank()));
     }
+
+    public boolean canDouble(Wallet wallet) {
+        return (wallet.getCash() >= bet &&
+                cardsInDeck() == 2);
+    }
 }

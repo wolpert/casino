@@ -41,7 +41,8 @@ public class HandTest {
         Wallet wallet = new Wallet(100);
         assertTrue(getHand(new Rank[]{Rank.ACE, Rank.ACE}).canSplit(wallet));
         assertTrue(getHand(new Rank[]{Rank.EIGHT, Rank.EIGHT}).canSplit(wallet));
-
+        ;
+        assertFalse(getHand(new Rank[]{Rank.EIGHT, Rank.EIGHT, Rank.EIGHT}).canSplit(wallet));
         assertFalse(getHand(new Rank[]{Rank.ACE, Rank.TWO}).canSplit(wallet));
         assertFalse(getHand(new Rank[]{Rank.KING, Rank.JACK}).canSplit(wallet));
 
@@ -49,6 +50,23 @@ public class HandTest {
         wallet = new Wallet(10.0);
         assertFalse(getHand(new Rank[]{Rank.ACE, Rank.ACE}).canSplit(wallet));
         assertFalse(getHand(new Rank[]{Rank.EIGHT, Rank.EIGHT}).canSplit(wallet));
+    }
+
+    @Test
+    public void canDouble() {
+        Wallet wallet = new Wallet(100);
+        assertTrue(getHand(new Rank[]{Rank.ACE, Rank.ACE}).canDouble(wallet));
+        assertTrue(getHand(new Rank[]{Rank.EIGHT, Rank.EIGHT}).canDouble(wallet));
+
+        assertFalse(getHand(new Rank[]{Rank.EIGHT, Rank.EIGHT, Rank.EIGHT}).canDouble(wallet));
+        assertTrue(getHand(new Rank[]{Rank.ACE, Rank.TWO}).canDouble(wallet));
+        assertTrue(getHand(new Rank[]{Rank.KING, Rank.JACK}).canDouble(wallet));
+
+        // out of money
+        wallet = new Wallet(10.0);
+        assertFalse(getHand(new Rank[]{Rank.EIGHT, Rank.EIGHT, Rank.EIGHT}).canDouble(wallet));
+        assertFalse(getHand(new Rank[]{Rank.ACE, Rank.ACE}).canDouble(wallet));
+        assertFalse(getHand(new Rank[]{Rank.EIGHT, Rank.EIGHT}).canDouble(wallet));
     }
 
     private Hand getHand(Rank[] ranks) {
