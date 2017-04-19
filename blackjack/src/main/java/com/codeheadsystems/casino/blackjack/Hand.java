@@ -2,17 +2,18 @@ package com.codeheadsystems.casino.blackjack;
 
 import com.codeheadsystems.casino.cards.CardHolder;
 import com.codeheadsystems.casino.cards.Rank;
+import lombok.Getter;
 import lombok.ToString;
 
 /**
- * Purpose:
+ * Purpose: Provide a way to manage an individual player or dealer's hand.
  */
 @ToString
 public class Hand extends CardHolder {
 
     public static final int MAX_VALUE = 21;
 
-    private double bet;
+    @Getter private double bet;
 
     public Hand(final double bet) {
         this.bet = bet;
