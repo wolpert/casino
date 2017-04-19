@@ -30,12 +30,12 @@ public class Hand extends CardHolder {
 
     public boolean canSplit(Wallet wallet) {
         return (wallet.getCash() >= bet &&
-                cardsInDeck() == 2 &&
+                size() == 2 &&
                 getCards().get(0).getRank().equals(getCards().get(1).getRank()));
     }
 
     public boolean canDouble(Wallet wallet) {
         return (wallet.getCash() >= bet &&
-                cardsInDeck() == 2);
+                size() == 2);
     }
 }

@@ -14,7 +14,7 @@ public class DeckTest {
     @Test
     public void testStandardDeck() {
         Deck deck = Deck.standardDeck();
-        assertEquals(52, deck.cardsInDeck());
+        assertEquals(52, deck.size());
         HashSet<Card> set = new HashSet<>();
         for (int i = 0; i < 52; i++) {
             Optional<Card> card = deck.topCard();
@@ -58,9 +58,9 @@ public class DeckTest {
         Deck deck1 = Deck.standardDeck();
         Deck deck2 = Deck.standardDeck();
         deck1.addCards(deck2);
-        assertEquals(104, deck1.cardsInDeck());
+        assertEquals(104, deck1.size());
         HashMap<Card, Integer> map = new HashMap<>();
-        while (deck1.cardsInDeck() > 0) {
+        while (deck1.size() > 0) {
             Card card = deck1.topCard().get();
             if (map.containsKey(card)) {
                 map.put(card, map.get(card) + 1);

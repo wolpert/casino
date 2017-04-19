@@ -29,7 +29,7 @@ public abstract class CardHolder {
         Collections.addAll(cards, cardArray);
     }
 
-    public int cardsInDeck() {
+    public int size() {
         return cards.size();
     }
 
