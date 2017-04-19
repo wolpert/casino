@@ -1,0 +1,50 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        jcenter()
+    }
+    dependencies {
+        classpath 'de.richsource.gradle.plugins:gwt-gradle-plugin:0.6'
+        classpath 'com.android.tools.build:gradle:2.2.2'
+    }
+}
+
+
+allprojects {
+    apply plugin: "java"
+    sourceCompatibility = 1.8
+
+    group 'com.codeheadsystems'
+
+    version = '1.0-SNAPSHOT'
+    ext {
+        lombok = '1.16.16'
+        guava = '21.0'
+        junit = '4.12'
+    }
+
+    repositories {
+        mavenCentral()
+        maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
+        maven { url "https://oss.sonatype.org/content/repositories/releases/" }
+    }
+
+    dependencies {
+        compile "org.projectlombok:lombok:${lombok}"
+        compile "com.google.guava:guava:${guava}"
+        testCompile "junit:junit:${junit}"
+    }
+    
+}
+
+project(":cards") {
+}
+
+project(":blackjack") {
+
+    dependencies {
+        compile project(":cards")
+    }
+}
+
